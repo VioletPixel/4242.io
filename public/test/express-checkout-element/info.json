@@ -1,0 +1,8 @@
+{
+  "title": "Express Checkout Element",
+  "description": "Two Express Checkout Elements (US & GB) showing multiple wallet options that will make a test payment when used",
+  "docsURL": "https://stripe.com/docs/elements/express-checkout-element",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

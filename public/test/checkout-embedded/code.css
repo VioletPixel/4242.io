@@ -1,0 +1,8 @@
+#checkout {
+  /* Provides a visual outline of the embedded Checkout container */
+  border: solid 1px;
+  /* Aesthetics */
+  background-color: white; /* For dark mode */
+  padding: 1rem;
+  border-radius: .25rem;
+}

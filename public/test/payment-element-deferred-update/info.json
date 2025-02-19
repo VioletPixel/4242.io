@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element: Deferred with update-end Event",
+  "description": "A single Payment Element which uses the deferred flow, calls elements.update in the pay button click handler, and handles the update-end event to proceed with the payment process",
+  "docsURL": "https://docs.stripe.com/js/element/events/on_update_end",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

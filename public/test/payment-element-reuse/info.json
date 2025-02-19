@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element: Reuse a Payment Method",
+  "description": "A Payment Element which uses a Customer Session to display saved Payment Methods",
+  "docsURL": "https://docs.stripe.com/payments/save-and-reuse?platform=web&ui=elements",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Buy Button",
+  "description": "Two buy buttons, one for a one-time payment and another for a subscription",
+  "docsURL": "https://stripe.com/docs/payment-links/buy-button",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

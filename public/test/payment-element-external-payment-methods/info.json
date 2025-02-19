@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element: External Payment Methods",
+  "description": "External payment methods with the Payment Element",
+  "docsURL": "https://stripe.com/docs/payments/external-payment-methods",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

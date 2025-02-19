@@ -1,0 +1,8 @@
+{
+  "title": "Express Checkout Element: Robust",
+  "description": "A robust Express Checkout Element integration using several different features",
+  "docsURL": "https://stripe.com/docs/elements/express-checkout-element",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

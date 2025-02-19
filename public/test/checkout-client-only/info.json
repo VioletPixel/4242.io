@@ -1,0 +1,7 @@
+{
+  "title": "Checkout: Client-Only",
+  "description": "Legacy client-only Checkout integration",
+  "docsURL": "https://stripe.com/docs/payments/checkout/client",
+  "reference": false,
+  "index": true
+}

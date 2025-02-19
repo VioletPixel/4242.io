@@ -1,0 +1,21 @@
+<h3>Polyfill shenanigans</h3>
+
+<p>This page shows an example of a basic polyfill/override of <code>JSON.stringify</code> and demonstrates how polyfills and overrides can be dangerous.</p>
+
+<p>The <code>JSON.stringify</code> polyfill on this page is intentionally flawed: It only takes a single argument, whereas <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">the native version</a> takes between one and three arguments.</p>
+
+<p>Open the console on this page and try running the following code, which this page already ran when it loaded (also try running it in a different tab/page to see the difference in the output):</p>
+
+<p><code>JSON.stringify({foo: "bar"}, null, 2);</code></p>
+
+<p>The native <code>JSON.stringify</code> function would use the third argument (<code>2</code>) to format the JSON across multiple lines with whitespace, which would show output like this:</p>
+
+<pre>{
+  "foo": "bar"
+}</pre>
+
+<p>However, you don't get that nicely formatted, multiline output on this page because the <code>JSON.stringify</code> polyfill only supports a single argument.</p>
+
+<p>Also note that every time you use <code>JSON.stringify</code> in the console the code to add a line to the output element below is activated again.</p>
+
+<pre id="output"></pre>

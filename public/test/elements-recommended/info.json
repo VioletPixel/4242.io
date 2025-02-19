@@ -1,0 +1,8 @@
+{
+  "title": "Elements: Recommended Payment Form",
+  "description": "A minimal (but heavily-commented!) example of how I would combine the Express Checkout Element, two Address Elements, and the Payment Element to build an ideal payment form",
+  "docsURL": "https://docs.stripe.com/payments/elements",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

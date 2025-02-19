@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element",
+  "description": "A single Payment Element that will complete a test payment when used",
+  "docsURL": "https://stripe.com/docs/payments/payment-element",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

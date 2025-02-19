@@ -1,0 +1,8 @@
+{
+  "title": "Pricing Table",
+  "description": "A single Pricing Table showing two Prices for a single Product",
+  "docsURL": "https://docs.stripe.com/payments/checkout/pricing-table",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

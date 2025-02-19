@@ -1,0 +1,7 @@
+{
+  "title": "Payment Links",
+  "description": "Two Payment Links; one for a one-time payment and another which will start a subscription",
+  "docsURL": "https://stripe.com/docs/payment-links",
+  "reference": true,
+  "index": true
+}

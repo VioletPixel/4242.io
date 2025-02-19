@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Apple Pay in an iFrame</title>
+		<meta name="viewport" content="width=device-width">
+		<script src="https://js.stripe.com/v3/"></script>
+		<style>
+		
+			body {
+				max-width: 70ch;
+				margin: 0 auto;
+				padding: 1em;
+				font-family: system-ui, sans-serif;
+				line-height: 1.5;
+			}
+			
+			pre,
+			code {
+				font-size: 1.2em;
+			}
+			
+			pre {
+				white-space: pre-wrap;
+			}
+			
+			code {
+				background: #eee;
+				padding: .1em .3em;
+				border-radius: .3em;
+			}
+			
+			iframe {
+				width: 100%;
+				height: 30em;
+				margin: 1em auto;
+				border: ridge 4px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>💸 Apple Pay in an iFrame with Stripe</h1>
+		
+		<h2>The Problem</h2>
+		
+		<p>To use Apple Pay in an iframe the origin of the iframe must match all parent iframes.  This is an Apple security measure that cannot be changed.  This makes it impossible to, for example, have a top-level page hosted at <code>https://example.com/</code> but the iframe containing the Apple Pay/Payment Request code or Payment Request Button hosted on a different origin, like <code>https://some-other-origin.example.com/</code>.</p>
+		
+		<h2>The Solution</h2>
+		
+		<p>This page has an Apple Pay button inside an iframe with a different origin than the top-level page, but it works!  The trick is to place the actual Apple Pay/Payment Request code in the top-level iframe and trigger it from the iframe using <code>postMessage</code>, then pass the Apple Pay results back to the iframe the same way.  See <a href="#how">the how it works section</a> below for more details.</p>
+		
+		<p>Note: This demo only produces a Payment Method from the Apple Pay sheet and passes it to the iframe.  No payment is actually made, as this is just a simple demo of how this kind of setup can work.</p>
+		
+		<h2>📺 Output</h2>
+		
+		<div id="output">...</div>
+		
+		<h2>🖼 The iFrame</h2>
+		
+		<iframe id="apple-pay-frame" src="https://apple-pay-frame.4242.io/"></iframe>
+		
+		<h2 id="how">⚙️ How it Works</h2>
+		
+		<ol>
+			<li>When the page loads <a href="https://stripe.com/docs/js/payment_request/create">a new Payment Request object is created</a> and <a href="https://stripe.com/docs/js/payment_request/can_make_payment"><code>paymentRequest.canMakePayment()</code></a> is called</li>
+			<li>If the result of <code>paymentRequest.canMakePayment()</code> shows that Apple Pay is available <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage"><code>postMessage</code></a> is used to send a <code>canMakePayment</code> message to the iframe</li>
+			<li>The iframe receives the message and displays the Apple Pay button (which is just a regular <code>&lt;button&gt;</code> styled with <a href="https://developer.apple.com/documentation/apple_pay_on_the_web/styling_the_apple_pay_button_with_css">Apple Pay CSS</a></li>
+			<li>When the Apple Pay button is pressed the code in the iframe sends a <code>requestPayment</code> message via <code>postMessage</code> to the top level page</li>
+			<li>The top level page receives the <code>requestPayment</code> message and uses <a href="https://stripe.com/docs/js/payment_request/show"><code>paymentRequest.show()</code></a> to display the payment sheet</li>
+			<li>After Apple Pay is authenticated the Payment Request object receives a <a href="https://stripe.com/docs/js/payment_request/events/on_paymentmethod"><code>paymentmethod</code> event</a> which triggers sending a <code>paymentMethod</code> message via <code>postMessage</code> to the iframe</li>
+		</ol>
+		
+		<p>Have a look at the source code of this page and the page loaded in the iframe to see the actual implementation.  It's entirely client-side, so there's no hidden server-side magic or anything like that.</p>
+		
+		<script>
+			
+			const targetOrigin = 'https://apple-pay-frame.4242.io';
+			
+			const frame = document.querySelector('#apple-pay-frame');
+			
+			const outputElement = document.querySelector('#output');
+			
+			const stripe = Stripe('pk_test_51O2hxMC4JnNRtz8VToJJbGHrFTPPr6TkP09h7ql3YJaqpNcxoSNxtk38glyzi9VrZKStns858YynOO2ZyGmU7VRi00CIUWuUdk');
+			
+			let paymentResponse;
+			
+			const paymentRequest = stripe.paymentRequest({
+				country: 'US',
+				currency: 'usd',
+				total: {
+					label: 'Apple Pay in a Frame!',
+					amount: 0,
+					pending: true,
+				},
+				requestPayerName: true,
+				requestPayerEmail: true,
+			});
+			
+			window.addEventListener("message", (event) => {
+				if (event.origin !== targetOrigin) {
+					return;
+				}
+				
+				if (event.data.type == 'letsGo') {
+					(async () => {
+						const result = await paymentRequest.canMakePayment();
+						
+						if (result && result.applePay) {
+							frame.contentWindow.postMessage({
+								type: 'canMakePayment'
+							}, targetOrigin);
+						}
+						else {
+							outputElement.innerHTML = '<strong>Error:</strong> <code>paymentRequest.canMakePayment()</code> indicated Apple Pay cannot be used.  Try opening this page in Safari and make sure you have a valid payment card in your Apple Wallet.';
+						}
+					})();
+				}
+				
+				if (event.data.type == 'requestPayment') {
+					paymentRequest.show();
+				}
+				
+				if (event.data.type == 'completePaymentRequest') {
+					paymentResponse.complete(event.data.status);
+				}
+			});
+			
+			paymentRequest.on('paymentmethod', async (event) => {
+				outputElement.innerHTML = '<p>Got a Payment Method: <code>' + event.paymentMethod.id + '</code></p><p>Sending it to the frame!</p>';
+				
+				paymentResponse = event;
+				
+				frame.contentWindow.postMessage({
+					messageType: 'paymentMethod',
+					paymentMethod: event.paymentMethod.id,
+				}, targetOrigin);
+			});
+						
+		</script>
+	</body>
+</html>

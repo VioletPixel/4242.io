@@ -1,0 +1,10 @@
+#card-element {
+  border: solid 1px;
+  background-color: white;
+  border-radius: .25rem;
+  padding: .5rem;
+}
+
+#card-element.incomplete {
+  border-color: red;
+}

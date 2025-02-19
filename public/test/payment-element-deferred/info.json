@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element: Deferred",
+  "description": "A single Payment Element which uses the deferred flow to complete a test payment",
+  "docsURL": "https://stripe.com/docs/payments/accept-a-payment-deferred",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

@@ -1,0 +1,8 @@
+{
+  "title": "CVC Element",
+  "description": "A single CVC element that will create a CVC Token",
+  "docsURL": "https://stripe.com/docs/js/elements_object/create_element?type=cardCvc",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

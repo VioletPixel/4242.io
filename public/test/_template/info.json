@@ -1,0 +1,9 @@
+{
+  "title": "Template",
+  "description": "A template for new test integrations",
+  "docsURL": "https://stripe.com/docs",
+  "index": false,
+  "reference": false,
+  "beta": false,
+  "legacy": false
+}

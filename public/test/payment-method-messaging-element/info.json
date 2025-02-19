@@ -1,0 +1,8 @@
+{
+  "title": "Payment Method Messaging Element",
+  "description": "A single Payment Method Messaging Element which displays payment options and, when interacted with, a modal with more information",
+  "docsURL": "https://stripe.com/docs/payments/payment-method-messaging",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

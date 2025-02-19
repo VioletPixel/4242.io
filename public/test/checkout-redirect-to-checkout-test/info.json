@@ -1,0 +1,7 @@
+{
+  "title": "Checkout: redirectToCheckout Test",
+  "description": "Legacy client/server stripe.redirectToCheckout integration for random testing",
+  "docsURL": "https://stripe.com/docs/js/deprecated/redirect_to_checkout",
+  "reference": false,
+  "index": true
+}

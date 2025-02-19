@@ -1,0 +1,8 @@
+{
+  "title": "Express Checkout Element: Dismiss",
+  "description": "Shows how to cancel the payment process and dismiss the payment interface during the confirm event",
+  "docsURL": "https://stripe.com/docs/elements/express-checkout-element",
+  "reference": false,
+  "index": false,
+  "beta": true
+}

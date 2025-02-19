@@ -1,0 +1,6 @@
+#express-checkout-element {
+  /* Center the Element */
+  margin: 0 auto;
+  /* Prevent the Element from being too wide */
+  max-width: 320px;
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Payment Request Button in an iFrame",
+  "description": "The Payment Request Button inside different iframe elements",
+  "docsURL": "https://stripe.com/docs/stripe-js/elements/payment-request-button",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

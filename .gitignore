@@ -1,0 +1,15 @@
+# Don't commit secrets!
+/secrets.ini
+
+# Composer
+# Interestingly, composer.lock should _not_ be ignored: https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
+/vendor/
+
+# macOS
+.DS_Store
+
+# Nova
+/.nova
+
+# My internal todo list
+TODO.markdown

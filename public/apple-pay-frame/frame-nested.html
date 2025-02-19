@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Apple Pay Nested Frame</title>
+		<meta name="viewport" content="width=device-width">
+		<script src="https://js.stripe.com/v3/"></script>
+		<style>
+		
+			body {
+				max-width: 70ch;
+				margin: 0 auto;
+				padding: 1em;
+				font-family: sans-serif;
+				line-height: 1.5;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>Apple Pay Nested Frame</h1>
+		
+		<p>This frame has origin <code>https://4242.io</code> and has a Payment Request Button.</p>
+		
+		<p id="payment-request-button"></p>
+		
+		<div id="output"></div>
+		
+		<script>
+			
+			const outputElement = document.querySelector('#output');
+			
+			const stripe = Stripe('pk_test_51O2hxMC4JnNRtz8VToJJbGHrFTPPr6TkP09h7ql3YJaqpNcxoSNxtk38glyzi9VrZKStns858YynOO2ZyGmU7VRi00CIUWuUdk');
+			
+			const elements = stripe.elements();
+			
+			const paymentRequest = stripe.paymentRequest({
+				country: 'US',
+				currency: 'usd',
+				total: {
+					label: 'Apple Pay Nested Frame Test',
+					amount: 0,
+					pending: true,
+				},
+				requestPayerName: true,
+				requestPayerEmail: true,
+			});
+			
+			const prButton = elements.create('paymentRequestButton', {
+				paymentRequest,
+				style: {
+					paymentRequestButton: {
+						type: "default",
+						theme: "dark",
+					}
+				}
+			});
+			
+			(async () => {
+				const result = await paymentRequest.canMakePayment();
+				
+				if (result) {
+					console.log('Mounting Payment Request Button!');
+					prButton.mount('#payment-request-button');
+				}
+				else {
+					document.querySelector('#payment-request-button').innerHTML = 'Payment Request Button unavailable due to negative <code>canMakePayment()</code> result.';
+				}
+			})();
+			
+			paymentRequest.on('paymentmethod', async (event) => {
+				outputElement.innerHTML = '<p>Got Payment Method: <code>' + event.paymentMethod.id + '</code>';
+				
+				event.complete('success');
+			});
+		
+		</script>
+	</body>
+</html>

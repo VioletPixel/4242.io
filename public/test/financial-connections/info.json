@@ -1,0 +1,7 @@
+{
+  "title": "Financial Connections",
+  "description": "A button that will create a Customer, create a Financial Connection Sessions for that Customer, and start the flow to connect a Financial Account",
+  "docsURL": "https://stripe.com/docs/financial-connections",
+  "reference": true,
+  "index": true
+}

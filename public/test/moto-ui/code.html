@@ -1,0 +1,47 @@
+<form>
+  <p>
+    <label>
+      Card Number<br>
+      <input name="card[number]" type="text" pattern="[0-9]*">
+    </label>
+  </p>
+  
+  <p>
+    <label>
+      Expiration Month<br>
+      <select name="card[exp_month]">
+        <option value="1">January (1)</option>
+        <option value="2">February (2)</option>
+        <option value="3">March (3)</option>
+        <option value="4">April (4)</option>
+        <option value="5">May (5)</option>
+        <option value="6">June (6)</option>
+        <option value="7">July (7)</option>
+        <option value="8">August (8)</option>
+        <option value="9">September (9)</option>
+        <option value="10">October (10)</option>
+        <option value="11">November (11)</option>
+        <option value="12">December (12)</option>
+      </select>
+    </label>
+  </p>
+  
+  <p>
+    <label>
+      Expiration Year (YYYY)<br>
+      <input name="card[exp_year]" type="text" pattern="[0-9]*">
+    </label>
+  </p>
+  
+  <input name="type" value="card" hidden>
+  
+  <button type="button" id="create-payment-method">Create Payment Method</button>
+  
+  <p>This form makes a direct request to the Stripe API using a publishable key, without Stripe.js, to create a Payment Method using the card information provided.  The resulting Payment Method can then be used server-side for a MOTO payment.</p>
+  
+  <p><strong>Note:</strong> This approach is only appropriate for entities that are <a href="https://docs.stripe.com/security/guide#validating-pci-compliance">PCI-compliant</a>, where agents are handling raw card details to facilitate MOTO payments.</p>
+  
+  <p><a href="https://docs.stripe.com/js">Stripe.js</a>, <a href="https://docs.stripe.com/payments/elements">Elements</a>, or a Stripe-hosted UI (like <a href="https://docs.stripe.com/payments/checkout">Checkout</a>) are only suitable for use by cardholders and should not be used for MOTO payments.</p>
+</form>
+
+<pre id="output"></pre>

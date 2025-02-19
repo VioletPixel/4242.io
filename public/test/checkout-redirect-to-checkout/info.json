@@ -1,0 +1,7 @@
+{
+  "title": "Checkout: redirectToCheckout",
+  "description": "Legacy client/server stripe.redirectToCheckout integration",
+  "docsURL": "https://stripe.com/docs/js/deprecated/redirect_to_checkout",
+  "reference": false,
+  "index": true
+}

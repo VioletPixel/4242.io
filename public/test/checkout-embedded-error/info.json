@@ -1,0 +1,8 @@
+{
+  "title": "Checkout: Embedded Error Test",
+  "description": "A test for handling failures in Embedded Checkout",
+  "docsURL": "https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=embedded-checkout",
+  "reference": false,
+  "index": false,
+  "beta": false
+}

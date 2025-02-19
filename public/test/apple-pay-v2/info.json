@@ -1,0 +1,7 @@
+{
+  "title": "Apple Pay with Stripe.js v2",
+  "description": "An older, legacy Apple Pay integration",
+  "docsURL": "https://stripe.com/docs/apple-pay/web/v2",
+  "reference": false,
+  "index": true
+}

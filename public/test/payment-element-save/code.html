@@ -1,0 +1,31 @@
+<script src="https://js.stripe.com/v3/"></script>
+
+<section id="paymentMethodSaved" hidden>
+  <p>Payment Method saved!</p>
+  
+  <p class="reuseLink"><a href="">View it in action on the Payment Element: Reuse a Payment Method test integration!</a></p>
+</section>
+
+<section id="prepareToSaveSection">
+  <p>Press the "Prepare to Save" button below to do the following:</p>
+  
+  <ul>
+    <li>Create a <a href="https://docs.stripe.com/api/customers">Customer</a></li>
+    <li>Create a <a href="https://docs.stripe.com/api/customer_sessions">Customer Session</a></li>
+    <li>Create a <a href="https://docs.stripe.com/api/setup_intents">Setup Intent</a></li>
+    <li><a href="https://docs.stripe.com/js/elements_object/create">Initialize Stripe Elements</a> with the Customer Session's and Setup Intent's client secrets</li>
+    <li>Create and mount a <a href="https://docs.stripe.com/js/element/payment_element">Payment Element</a> to collect and save a <a href="https://docs.stripe.com/api/payment_methods">Payment Method</a> for future use</li>
+  </ul>
+  
+  <p><button type="button" id="prepareToSave">Prepare to Save</button></p>
+</section>
+
+<section id="savePaymentMethodSection" hidden>
+  <p class="loading">Loading...</p>
+  
+  <p id="payment-element"></p>
+  
+  <p><button type="button" id="savePaymentMethod">Save Payment Method</button></p>
+</section>
+
+<pre id="output"></pre>

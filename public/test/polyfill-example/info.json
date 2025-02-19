@@ -1,0 +1,8 @@
+{
+  "title": "Polyfill Example",
+  "description": "A simple polyfill example",
+  "docsURL": "https://developer.mozilla.org/en-US/docs/Glossary/Polyfill",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

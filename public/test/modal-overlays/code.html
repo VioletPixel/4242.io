@@ -1,0 +1,23 @@
+<script src="https://js.stripe.com/v3/"></script>
+
+<div id="popover" popover="manual">
+  <p>⏳ Loading!</p>
+  
+  <p><small>(There's no way to dismiss this, which is intentional.  Reload the page to try again.)</small></p>
+</div>
+
+<p>This page demonstrates how a "loading" indicator implemented with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">the Popover API</a> obscures Stripe.js modals and blocks payment flows.</p>
+
+<p>The <strong>Pay</strong> button below will open a "loading" popover, which on this page is <code>&lt;div&gt;</code> with the <code>popover</code> attribute set to <code>manual</code>.</p>
+
+<p>It's common for integrations to display a "loading" indicator at this point in the payment flow.  Users will often implement this using a framework's modal/popover/overlay/etc. UI component.  With the Popover API now at <a href="https://developer.mozilla.org/en-US/blog/baseline-evolution-on-mdn/">baseline</a> it's likely various frameworks, components, tutorials, etc. will adopt the popover API and we'll see more and more issues as a result unless we make changes in Stripe.js to account for them.</p>
+
+<p>To try this out, use any payment method that results in a Stripe.js modal, such as the <code>4000002760003184</code> test card which requires authentication.</p>
+
+<p>Note: A similar issue exists with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code> elements</a>.</p>
+
+<p id="payment-element"></p>
+
+<p><button type="button" id="payButton">Pay</button></p>
+
+<pre id="output"></pre>

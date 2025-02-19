@@ -1,0 +1,8 @@
+{
+  "title": "MOTO UI",
+  "description": "A form for collecting card details for mail order/telephone order (MOTO) transactions without using Stripe.js",
+  "docsURL": "https://docs.stripe.com/payments/payment-intents/moto",
+  "reference": false,
+  "index": false,
+  "beta": true
+}

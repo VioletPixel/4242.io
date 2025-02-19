@@ -1,0 +1,7 @@
+{
+  "title": "Checkout",
+  "description": "A link that, when visited, will create a new Checkout Session and redirect the user to its URL",
+  "docsURL": "https://stripe.com/docs/checkout",
+  "reference": true,
+  "index": true
+}

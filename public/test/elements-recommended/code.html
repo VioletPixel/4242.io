@@ -1,0 +1,27 @@
+<script src="https://js.stripe.com/v3/"></script>
+
+<h2>Product Info</h2>
+
+<!-- In a real integration this would likely display a lot more information and include options for adding or removing things from a cart, adjusting quantities, and so on. -->
+<p>You're buying <strong>⚙️ one imaginary widget</strong> for <strong>$42.00</strong>!</p>
+
+<!-- This is where the Express Checkout Element will be mounted.  My code will remove the hidden attribute if there's one or more express payment options. -->
+<p id="express-checkout-element" class="irrelevant"></p>
+
+<!-- Using the Express Checkout Option is a mutually exclusive option separate from filling out the Address Element and Payment Element, so there's a bit of explanatory text here to help the customer. -->
+<p id="express-payment-instructions" class="irrelevant">or use the form below</p>
+
+<!-- Stripe Elements are designed to be self-contained, flexible UI components, so they don't have things like headers or titles, just the minimum require for their particular function.  This provides a lot of flexibility when it comes to the surrounding UI.  Here, I'm adding simple header elements to orient the customer and explain what address they're providing. -->
+<h3>Shipping address</h3>
+<p id="address-element-shipping"></p>
+
+<h3>Billing Address</h3>
+<p id="address-element-billing"></p>
+
+<h3>Pay with</h3>
+<p id="payment-element"></p>
+
+<!-- Note that this buy button is not part of Stripe.js or a Stripe Element, it's just a regular HTML button that will trigger the payment process (see the JavaScript for more details). -->
+<p><button type="button" id="buy">Buy Now</button></p>
+
+<pre id="output"></pre>

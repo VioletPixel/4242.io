@@ -1,0 +1,298 @@
+@media (prefers-color-scheme: light) {  
+  :root {
+    --output-background-color: black;
+    --output-border-color: #444;
+    
+    --php-hue: 320deg;
+    --html-hue: 280deg;
+    --css-hue: 180deg;
+    --js-hue: 80deg;
+    
+    --source-code-background-lightness: 10%;
+    --source-code-background-chroma: 25;
+    --source-code-border-lightness: 40%;
+    --source-code-border-chroma: 75;
+    
+    --php-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--php-hue));
+    --php-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--php-hue));
+    
+    --html-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--html-hue));
+    --html-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--html-hue));
+    
+    --css-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--css-hue));
+    --css-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--css-hue));
+    
+    --js-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--js-hue));
+    --js-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--js-hue));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --output-background-color: black;
+    --output-border-color: #444;
+    
+    --php-hue: 320deg;
+    --html-hue: 280deg;
+    --css-hue: 180deg;
+    --js-hue: 80deg;
+    
+    --source-code-background-lightness: 5%;
+    --source-code-background-chroma: 25;
+    --source-code-border-lightness: 10%;
+    --source-code-border-chroma: 75;
+    
+    --php-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--php-hue));
+    --php-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--php-hue));
+    
+    --html-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--html-hue));
+    --html-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--html-hue));
+    
+    --css-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--css-hue));
+    --css-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--css-hue));
+    
+    --js-background-color: lch(var(--source-code-background-lightness) var(--source-code-background-chroma) var(--js-hue));
+    --js-border-color: lch(var(--source-code-border-lightness) var(--source-code-border-chroma) var(--js-hue));
+  }
+}
+
+#home header,
+#home main,
+#home footer {
+  max-width: 90ch;
+}
+
+#home main,
+div.integration {
+  background-color: var(--background-color);
+}
+
+main.integration {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* header .description {
+  margin: .25rem 0 1rem;
+} */
+
+div.integration {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow:
+    0 .1rem .1rem var(--shadow-color),
+    0 .2rem .2rem var(--shadow-color),
+    0 .4rem .4rem var(--shadow-color),
+    0 .8rem .8rem var(--shadow-color),
+    0 1.6rem 1.6rem var(--shadow-color);
+}
+
+div.integration * > :first-child {
+  margin-top: 0 !important;
+}
+
+div.integration > :last-child {
+  margin-bottom: 0 !important;
+}
+
+nav:not(#top) {
+  font-size: .75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+nav:not(#top) a {
+  text-decoration: none;
+  opacity: .6;
+}
+
+nav:not(#top) a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+nav:not(#top) ul,
+nav:not(#top) li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav:not(#top) ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav:not(#top) ul li:first-child {
+  order: 2;
+}
+
+nav:not(#top) ul li:last-child {
+  order: 1;
+}
+
+:not(pre) > code,
+pre:has(code) {
+  font-family: ui-monospace, monospace;
+  padding: .1em .2em;
+  border-radius: .3em;
+  color: var(--inline-code-foreground-color);
+  background-color: var(--inline-code-background-color);
+}
+
+pre:has(code) {
+  padding: .5em .75em;
+}
+
+pre#output {
+  background-color: var(--output-background-color);  
+  border: solid 1px var(--output-border-color);
+}
+
+pre#output,
+pre.source-code {
+  border-radius: .25rem;
+  border-style: solid;
+  border-width: 2px;
+  margin: 1rem 0;
+  padding: 2rem 1rem 1rem;
+  position: relative;
+  color: var(--code-foreground-color);
+}
+
+pre.source-code.php {
+  background-color: var(--php-background-color);
+  border-color: var(--php-border-color);
+}
+
+pre.source-code.html {
+  background-color: var(--html-background-color);
+  border-color: var(--html-border-color);
+}
+
+pre.source-code.css {
+  background-color: var(--css-background-color);
+  border-color: var(--css-border-color);
+}
+
+pre.source-code.js {
+  background-color: var(--js-background-color);
+  border-color: var(--js-border-color);
+}
+
+pre::before {
+  text-transform: uppercase;
+  font-size: .75rem;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  letter-spacing: .25em;
+  position: absolute;
+  top: .25rem;
+  left: .5rem;
+  opacity: .5;
+}
+
+pre#output::before {
+  content: 'Output';
+}
+
+pre.source-code::before {
+  mix-blend-mode: color-dodge;
+}
+
+pre.source-code.php::before {
+  content: 'PHP'
+}
+
+pre.source-code.html::before {
+  content: 'HTML'
+}
+
+pre.source-code.html.iframe::before {
+  content: 'HTML (iframe)'
+}
+
+pre.source-code.css::before {
+  content: 'CSS'
+}
+
+pre.source-code.js::before {
+  content: 'JavaScript'
+}
+
+#home main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#home article {
+  padding: 1rem;
+  border-radius: .5rem;
+  position: relative;
+  border: solid 1px var(--border-color);
+}
+
+#home .integrations,
+#home .stuff {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+  gap: 1rem;
+}
+
+#home article .description,
+#home article .badges {
+  margin: .25rem 0 0;
+}
+
+details.badge-info {
+  margin: 1em 0;
+}
+
+details.badge-info summary {
+  font-size: .75em;
+  opacity: .5;
+}
+
+.badges {
+  margin: 1em 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: .5em .8em .45em;
+  line-height: 1em;
+  font-size: .75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10em;
+  vertical-align: .15em;
+  color: rgba(0,0,0,.75);
+}
+
+.badge.beta {
+  background-color: #fd0;
+}
+
+.badge.legacy {
+  background-color: #f88;
+}
+
+.badge.hidden {
+  background-color: #bbb;
+}
+
+.badge.reference {
+  background-color: #6e6;
+}
+
+.test-integration header .badges,
+.test-integration header .description {
+  margin: .5em 0;
+}

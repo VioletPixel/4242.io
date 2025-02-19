@@ -1,0 +1,29 @@
+/* The express payment buttons look odd if they get too wide; this centers them and constrains their width */
+#express-checkout-element {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 360px;
+}
+
+/* This elements pertaining to the Express Checkout Element are hidden by default with this "irrelevant" class.  If one or more express payment options are available, this class will be removed to make the Express Checkout Element and the associated instructions visible. */
+.irrelevant {
+  display: none !important;
+}
+
+/* This centers the express payment instructions text and adds horizontal lines on either side */
+#express-payment-instructions {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: .5em;
+  font-size: .75em;
+  opacity: .75;
+}
+
+/* These are the horizontal lines themselves */
+#express-payment-instructions::before,
+#express-payment-instructions::after {
+  content: "";
+  border-top: 1px solid;
+  align-self: center;
+  opacity: .25;
+}

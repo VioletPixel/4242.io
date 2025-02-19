@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element with Address Element",
+  "description": "A Payment Element with an Address Element that will complete a test payment when used",
+  "docsURL": "https://stripe.com/docs/payments/payment-element",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

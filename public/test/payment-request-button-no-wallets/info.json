@@ -1,0 +1,7 @@
+{
+  "title": "Payment Request Button: No Wallets",
+  "description": "The Payment Request Button with all wallets disabled (useful for testing Link)",
+  "docsURL": "https://stripe.com/docs/stripe-js/elements/payment-request-button",
+  "reference": false,
+  "index": true
+}

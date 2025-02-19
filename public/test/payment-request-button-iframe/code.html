@@ -1,0 +1,14 @@
+<h3>Same Origin iFrame</h3>
+
+<iframe src="iframe.html"></iframe>
+
+<h3>Cross-Origin iFrame</h3>
+
+<iframe src="https://foo.4242.io/test/payment-request-button-iframe/iframe.html" allow="payment *"></iframe>
+
+<h4>Things to note</h4>
+
+<ul>
+  <li>The <code>allow="payment *"</code> attribute is only required for cross-origin iframes</li>
+  <li>To get Apple Pay working <strong>both</strong> the top-level and iframe domains need to be <a href="https://docs.stripe.com/payments/payment-methods/pmd-registration?dashboard-or-api=dashboard#verify-domain-with-apple">verified with Apple</a></li>
+</ul>

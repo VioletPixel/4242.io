@@ -1,0 +1,8 @@
+{
+  "title": "Card Element: Robust",
+  "description": "A more robust integration of the Card Element, with more options and features than the reference integration",
+  "docsURL": "https://stripe.com/docs/payments/accept-card-payments?platform=web&ui=elements",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

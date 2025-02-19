@@ -1,0 +1,8 @@
+{
+  "title": "Card Element: Split Old jQuery",
+  "description": "Making sure this works with an old version of jQuery",
+  "docsURL": "https://stripe.com/docs/payments/accept-card-payments?platform=web&ui=elements",
+  "reference": false,
+  "index": false,
+  "beta": false
+}

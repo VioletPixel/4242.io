@@ -1,0 +1,9 @@
+{
+  "title": "Payment Request Button: Create a Token",
+  "description": "A single Payment Request Button that will create a Token when used",
+  "docsURL": "https://stripe.com/docs/stripe-js/elements/payment-request-button",
+  "reference": true,
+  "index": true,
+  "beta": false,
+  "legacy": true
+}

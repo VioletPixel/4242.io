@@ -1,0 +1,8 @@
+{
+  "title": "Card Element: Split",
+  "description": "A single set of split Card Elements (number, expiration, CVC, and postal code) which will make a test payment when used",
+  "docsURL": "https://stripe.com/docs/payments/accept-card-payments?platform=web&ui=elements",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

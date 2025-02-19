@@ -1,0 +1,8 @@
+{
+  "title": "Payment Request Button: Robust",
+  "description": "A robust integration of the Payment Request Button using several different features",
+  "docsURL": "https://stripe.com/docs/stripe-js/elements/payment-request-button",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

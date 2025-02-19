@@ -1,0 +1,7 @@
+{
+  "title": "Apple Pay: No Stripe",
+  "description": "Test low-level Apple Pay functionality without Stripe libraries or code",
+  "docsURL": "https://developer.apple.com/documentation/apple_pay_on_the_web",
+  "reference": false,
+  "index": true
+}

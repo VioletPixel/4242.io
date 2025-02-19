@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Modal Focus Stealing</title>
+		<script src="https://js.stripe.com/v3/"></script>
+		<style>
+		
+			body {
+				max-width: 60ch;
+				margin: 0 auto;
+				padding: 1em;
+				font-family: system-ui, sans-serif;
+				line-height: 1.6;
+			}
+			
+			pre {
+				white-space: pre-wrap;
+			}
+			
+			#error {
+				color: #800;
+			}
+			
+			#card-element {
+				border: solid 1px;
+				border-radius: .25em;
+				padding: .5em;
+			}
+			
+			#card-element.incomplete {
+				border-color: red;
+			}
+			
+			.StripeElement--webkit-autofill {
+				background-color: #00ff00 !important;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>Modal Focus Stealing</h1>
+		
+		<p>This page demonstrates how code running on a merchant's site can steal focus from the Stripe authentication modal and prevent payments from succeeding.</p>
+		
+		<p>This is a somewhat common problem when a modal or dialog component which is part of a larger framework or library is used to display a progress indicator or "processing payment" message.  Sometimes these components prevent other elements from receiving focus, which prevents customers from interacting with input elements in authentication dialogs using their keyboard.  That, in turn, prevents them from completing the payment.</p>
+		
+		<h2>Instructions</h2>
+		
+		<strong>Make sure you read all of the instructions first!</strong> This page will be hidden by the modal when it appears partway through!</strong>
+		
+		<ol>
+			<li>Paste this card number in the Card Element below: <code>4000002500003155</code></li>
+			<li>Fill in any expiration date in the future, any CVC, and any postal code</li>
+			<li><strong>Important: don't skip this step!</strong> Open your web browser's developer tools and go to the console tab</li>
+			<li>Press the <strong>Pay</strong> button below</li>
+			<li>Further instructions will appear in the console, follow them to reproduce the issue</li>
+		</ol>
+		
+		<p id="card-element"></p>
+		
+		<p id="payment-request-button"></p>
+		
+		<p><button type="button" id="pay-button">Pay</button></p>
+		
+		<pre id="output"></pre>
+		
+		<script>
+			
+			const outputElement = document.querySelector('#output');
+			
+			function addToOutput(string) {
+				outputElement.innerHTML += string + "\n";
+			}
+			
+			function clearOutput() {
+				outputElement.innerHTML = '';
+			}
+			
+			const payButton = document.querySelector('#pay-button');
+			
+			let timerID;
+			
+			function startStealingFocus() {
+				const timerID = setInterval(() => {
+					payButton.focus();
+					payButton.blur();
+				}, 10);
+				
+				return timerID;
+			}
+			
+			function stopStealingFocus(timerID) {
+				clearInterval(timerID);
+			}
+		
+			const stripe = Stripe('pk_test_51O2hxMC4JnNRtz8VToJJbGHrFTPPr6TkP09h7ql3YJaqpNcxoSNxtk38glyzi9VrZKStns858YynOO2ZyGmU7VRi00CIUWuUdk');
+			
+			const elements = stripe.elements();
+			
+			const cardElement = elements.create('card');
+
+			cardElement.mount('#card-element');
+			
+			payButton.addEventListener('click', async event => {
+				clearOutput();
+				
+				addToOutput('Starting focus stealing code...');
+				timerID = startStealingFocus();
+				
+				addToOutput('Processing test payment...');
+				const paymentIntentResponse = await fetch('./payment-intent.php');
+				const { client_secret: clientSecret } = await paymentIntentResponse.json();
+				if (!clientSecret) { addToOutput('Error: unable to obtain client secret!'); return; }
+				
+				console.log('%c👋 Further Instructions', 'font-size: x-large; font-weight: bold');
+				console.log('%c1️⃣ Step One', 'font-size: large;');
+				console.log('When the authentication modal appears, change the execution context in the dev tools from "top" or "auto" to the modal\'s frame, which probably has the word "challenge" or similar in the name', 'font-weight: bold;', '');
+				console.log('%c2️⃣ Step Two', 'font-size: large;');
+				console.log('Copy and run the JavaScript on the next line to add an <input> element to the top of the challenge modal:'); 
+				console.log("%cdocument.body.innerHTML='<input placeholder=\\'Try to use me!\\'>'+document.body.innerHTML;", 'font-family: monospace; font-weight: bold; font-size: large;');
+				console.log('%c3️⃣ Step Three', 'font-size: large;');
+				console.log('You should now see an <input> element in the modal.  Try to interact with it. You won\'t be able to use it because of the focus stealing code on the underlying page.  If the authentication process required you to interact with an element which required focus, you would be unable to proceed past this point.');
+				
+				const {error, paymentIntent} = await stripe.confirmCardPayment(clientSecret, {
+					payment_method: {
+						card: cardElement,
+					}
+				});
+				
+				stopStealingFocus(timerID);
+				addToOutput('Focus stealing stopped.');
+				
+				if (error) {
+					addToOutput('Error processing payment: ' + error.message);
+					return;
+				}
+				
+				addToOutput('Payment succeeded!');
+				addToOutput(JSON.stringify(paymentIntent, null, 4));
+			});
+		
+		</script>
+	</body>
+</html>

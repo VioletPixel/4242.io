@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element: Amazon Pay Only",
+  "description": "A single Payment Element which only shows Amazon Pay",
+  "docsURL": "https://stripe.com/docs/payments/accept-a-payment-deferred",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

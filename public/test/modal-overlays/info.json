@@ -1,0 +1,8 @@
+{
+  "title": "Modal Overlays",
+  "description": "Testing Stripe.js modal compatibility with newer HTML features",
+  "docsURL": "https://stripe.com/docs/payments/accept-a-payment-deferred",
+  "reference": false,
+  "index": false,
+  "beta": false
+}

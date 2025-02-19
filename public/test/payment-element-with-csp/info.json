@@ -1,0 +1,8 @@
+{
+  "title": "Payment Element with CSP",
+  "description": "A Payment Element with our documented CSP directives",
+  "docsURL": "https://docs.stripe.com/security/guide?csp=csp-js#content-security-policy",
+  "reference": false,
+  "index": true,
+  "beta": false
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Checkout: Embedded",
+  "description": "A page with a single embedded Checkout Session",
+  "docsURL": "https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=embedded-checkout",
+  "reference": true,
+  "index": true,
+  "beta": false
+}

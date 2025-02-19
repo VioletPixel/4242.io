@@ -1,0 +1,8 @@
+{
+  "title": "Checkout: Legacy",
+  "description": "A single legacy Checkout button",
+  "docsURL": "https://stripe.com/docs/legacy-checkout",
+  "reference": true,
+  "index": true,
+  "legacy": true
+}

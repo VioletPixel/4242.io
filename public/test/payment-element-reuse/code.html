@@ -1,0 +1,26 @@
+<script src="https://js.stripe.com/v3/"></script>
+
+<p id="loading">Loading...</p>
+
+<section id="demoCustomer" hidden>
+  <p>Use the <a href="/test/payment-element-save/">Payment Element: Save a Payment Method</a> test integration to save an arbitrary Payment Method to reuse here, or press the "Create a Demo Customer" button below to do the following:</p>
+  
+  <ul>
+    <li>Create a demo <a href="https://docs.stripe.com/api/customers">Customer</a></li>
+    <li>Create and confirm a <a href="https://docs.stripe.com/api/setup_intents">Setup Intent</a> to attach <code>pm_card_visa</code> to the demo Customer</li>
+    <li>Update the Payment Method's <a href="https://docs.stripe.com/api/payment_methods/update#update_payment_method-allow_redisplay"><code>allow_redisplay</code> property</a> to <code>true</code></li>
+    <li>Reload this page with the Customer's ID in a query parameter so the <a href="https://docs.stripe.com/js/element/payment_element">Payment Element</a> can be loaded with a <a href="https://docs.stripe.com/api/customer_sessions">Customer Session</a> set to display the Customer's saved Payment Method</li>
+  </ul>
+  
+  <p><button type="button" id="createDemoCustomer">Create Demo Customer</button></p>
+</section>
+
+<section id="paymentForm" hidden>
+  <p class="customerInfo"></p>
+  
+  <p id="payment-element"></p>
+  
+  <p><button type="button" id="pay">Pay</button></p>
+</section>
+
+<pre id="output"></pre>

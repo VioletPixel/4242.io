@@ -1,0 +1,7 @@
+{
+  "title": "Payment Request Button: No Link",
+  "description": "The Payment Request Button with Link disabled (useful for testing Apple Pay and Google Pay)",
+  "docsURL": "https://stripe.com/docs/stripe-js/elements/payment-request-button",
+  "reference": false,
+  "index": true
+}

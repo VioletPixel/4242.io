@@ -1,0 +1,9 @@
+#payment-method-messaging-element {
+  /* Show the boundary of the Element */
+  border: solid 1px;
+  /* Required for dark mode legibility */
+  background-color: white;
+  /* Aesthetics */
+  border-radius: .25rem;
+  padding: .5rem;
+}
