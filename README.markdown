@@ -15,8 +15,8 @@ This is the code for [4242.io](https://4242.io/), the website where I keep all m
 4. Make a copy of `secrets-EXAMPLE.ini` and name it `secrets.ini`
 5. Fill in the required values in `secrets.ini`
 6. Perform a find and replace across the entire project for my Stripe publishable keys and replace them with your own:
-  - Stripe US Account: `pk_test_51O2hxMC4JnNRtz8VToJJbGHrFTPPr6TkP09h7ql3YJaqpNcxoSNxtk38glyzi9VrZKStns858YynOO2ZyGmU7VRi00CIUWuUdk`
-  - Stripe GB Account: `pk_test_51O2zNKCHlokEYlHRvTSxtf7Xhv6hVRBfnMObfmlxgPhtT5rGvfzSPIT11kQ3KdXQn1bxZASNYZ2RKaYuYLFjeuM400bjPRpvrM`
+    - Stripe US Account: `pk_test_51O2hxMC4JnNRtz8VToJJbGHrFTPPr6TkP09h7ql3YJaqpNcxoSNxtk38glyzi9VrZKStns858YynOO2ZyGmU7VRi00CIUWuUdk`
+    - Stripe GB Account: `pk_test_51O2zNKCHlokEYlHRvTSxtf7Xhv6hVRBfnMObfmlxgPhtT5rGvfzSPIT11kQ3KdXQn1bxZASNYZ2RKaYuYLFjeuM400bjPRpvrM`
 7. Run  `php -S localhost:4242 -t public/` to start PHP's built-in web server
 8. Go to https://localhost:4242 in your browser and make sure everything works as expected
 
