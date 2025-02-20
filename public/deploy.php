@@ -45,6 +45,7 @@ $commands = [
   'git submodule update', // Update submodules
   'git status', // Show git status again now that we're done
   'git log -1', // Display git logs
+  'composer install', // Update dependencies based on composer.lock
 ];
 
 $output = '';

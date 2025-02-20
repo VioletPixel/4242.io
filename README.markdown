@@ -38,3 +38,7 @@ ErrorDocument 404 /404/
 ```
 
 The PHP script in the `public/404/` directory will then take appropriate action, including redirecting from old URLs to new ones as needed, or will display a "not found" page.
+
+## Deployment from GitHub
+
+When I push to this GitHub repo a webhook is sent to `public/deploy.php` which, in turn, runs commands on the server to pull `main` and do some other housekeeping.  See `public/deploy.php` for more information.
