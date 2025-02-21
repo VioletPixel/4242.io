@@ -39,6 +39,22 @@ if (!$valid) {
   exit;
 }
 
+$payload = null;
+
+try {
+  $payload = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
+}
+catch (Exception $e) {
+  http_response_code(500);
+  echo 'Error: Could not parse incoming JSON.';
+  exit;
+}
+
+if ($payload['ref'] != 'refs/heads/main') {
+  echo 'Not a main branch update, so not taking any action.';
+  exit;
+}
+
 // These commands will be run in order and their output will be sent in the response to this request, which can be viewed in GitHub's UI to aid in debugging
 $commands = [
   'echo $PWD', // Display the current working directory
@@ -58,7 +74,7 @@ $output = '';
 // Run the commands
 foreach($commands as $command) {
   $result = shell_exec($command . ' 2>&1');
-  $output .= '$ ' . $command . PHP_EOL . htmlentities(trim($result)) . PHP_EOL;
+  $output .= '❯ ' . $command . PHP_EOL . htmlentities(trim($result)) . PHP_EOL;
 }
 
 echo $output;
