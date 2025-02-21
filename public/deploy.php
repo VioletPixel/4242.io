@@ -13,6 +13,12 @@ $valid = false;
 $secrets = parse_ini_file('../secrets.ini');
 $secret = $secrets['github_webhook_secret'];
 
+if (empty($secret)) {
+  http_response_code(500);
+  echo "Error: No webhook secret set on server.";
+  exit;
+}
+
 // Get request signature
 $headers = getallheaders();
 $signature = array_key_exists('X-Hub-Signature-256', $headers) ? $headers['X-Hub-Signature-256'] : '';
@@ -35,7 +41,6 @@ if (!$valid) {
 
 // These commands will be run in order and their output will be sent in the response to this request, which can be viewed in GitHub's UI to aid in debugging
 $commands = [
-  'cd ..', // Go up to the root of this repo
   'echo $PWD', // Display the current working directory
   'whoami', // Display the current user
   'git status', // Show git status before we make any changes
@@ -45,7 +50,7 @@ $commands = [
   'git submodule update', // Update submodules
   'git status', // Show git status again now that we're done
   'git log -1', // Display git logs
-  'composer install', // Update dependencies based on composer.lock
+  'cd .. && composer install', // Go up outside the public directory and update dependencies based on composer.lock
 ];
 
 $output = '';
