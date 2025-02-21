@@ -2,6 +2,8 @@
 
 This is the code for [4242.io](https://4242.io/), the website where I keep all my [Stripe](https://stripe.com/) developer resources.
 
+Pull requests and bug reports are welcome!
+
 ## Requirements
 
 - [PHP](https://php.net/) 8.2+
