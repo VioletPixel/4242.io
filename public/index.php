@@ -13,7 +13,7 @@ echo htmlStart("4242.io: Justin's Stripe Stuff");
     <main>
       <p>Hello!</p>
       
-      <p>I'm Justin Michael, a staff engineer at <a href="https://stripe.com/">Stripe</a>.  I help developers build awesome Stripe integrations. This site is where I keep some of the tools, resources, and other misc. things related to that:</p>
+      <p>I'm Justin Michael, a former staff engineer at <a href="https://stripe.com/">Stripe</a>.  This site is where I keep some of the tools, resources, and other misc. things I used to help developers build awesome Stripe integrations:</p>
       
       <nav>
         <ul>
