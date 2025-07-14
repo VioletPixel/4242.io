@@ -1,0 +1,9 @@
+#payment-element {
+  /* Provides a visual outline of the Element */
+  border: solid 1px;
+  /* Required for dark mode legibility */
+  background-color: white;
+  /* Aesthetics */
+  padding: 1rem;
+  border-radius: .25rem;
+}
