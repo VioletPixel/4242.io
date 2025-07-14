@@ -1,0 +1,8 @@
+{
+  "title": "Elements with Checkout Sessions",
+  "description": "Basic implementation of Elements with Checkout Sessions",
+  "docsURL": "https://docs.stripe.com/payments/accept-a-payment?platform=web&ui=embedded-components",
+  "reference": true,
+  "index": true,
+  "beta": false
+}
