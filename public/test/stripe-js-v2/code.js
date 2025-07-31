@@ -2,7 +2,6 @@ const outputElement = document.querySelector('#output');
 
 Stripe.setPublishableKey('pk_test_51O2hxMC4JnNRtz8VToJJbGHrFTPPr6TkP09h7ql3YJaqpNcxoSNxtk38glyzi9VrZKStns858YynOO2ZyGmU7VRi00CIUWuUdk');
 
-
 document.getElementById('custom-button').addEventListener('click', function () {
   Stripe.card.createToken({
     number: document.getElementById('card-number').value,
