@@ -1,0 +1,6 @@
+{
+  "title": "Stripe.js v2",
+  "description": "An older integration with our Stripe.js v2 library before Elements was created",
+  "reference": false,
+  "index": true
+}

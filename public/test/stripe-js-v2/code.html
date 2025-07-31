@@ -1,0 +1,23 @@
+<script src="https://js.stripe.com/v2/"></script>
+
+<table>
+  <tr>
+    <td>Card Number</td>
+    <td><input id="card-number" type="text" size="20" data-stripe="number" value="4242424242424242" /></td>
+  </tr>
+  <tr>
+    <td>Expiry Month</td>
+    <td><input id="exp-month" type="text" size="2" data-stripe="exp-month" value="09" /></td>
+  </tr>
+  <tr>
+    <td>Expiry Year</td>
+    <td><input id="exp-year" type="text" size="4" data-stripe="exp-year" value="2030" /></td>
+  </tr>
+  <tr>
+    <td>CVC</td>
+    <td><input id="cvc" type="text" size="4" data-stripe="cvc" value="555" /></td>
+  </tr>
+</table>
+<input id="custom-button" type="button" value="Pay like it's 1999" />
+
+<pre id="output"></pre>
